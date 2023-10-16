@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using static System.Console;
 
 namespace Main
 {
@@ -6,71 +8,61 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            inicio:
-            Console.WriteLine("----------------------");
-            Console.WriteLine("-  CALCULADORA AUTO  -");
-            Console.WriteLine("----------------------");
-            Console.WriteLine("[1] Formula de Heren");
-            Console.WriteLine("[2] Formula de Bhaskara");
-
-            sbyte Selecionar = sbyte.Parse(Console.ReadLine());
-
-            switch (Selecionar)
+            string Stop = "S";
+            while (Stop == "S")
             {
-                case 1:
-                {
-                    Equacoes.Heren X = new Equacoes.Heren();
-                    Console.WriteLine("Digite o valor de A: ");
-                    X.A = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Digite o valor de B: ");
-                    X.B = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Digite o valor de C: ");
-                    X.C = double.Parse(Console.ReadLine());
+                Clear();
+                WriteLine("----------------------");
+                WriteLine("-  CALCULADORA AUTO  -");
+                WriteLine("----------------------");
+                WriteLine("[1] Formula de Heren");
+                WriteLine("[2] Formula de Bhaskara");
 
-                    double AreaX = X.SomaHeren();
-                    Console.WriteLine("Valor da area: {0:F2}", AreaX);
+                sbyte Selecionar = sbyte.Parse(ReadLine());
 
-                    break;
-                }
-                case 2:
+                switch (Selecionar)
                 {
-                    Equacoes.Bhaskara X = new Equacoes.Bhaskara();
-                    Console.WriteLine("Digite o valor de A: ");
-                    X.A = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Digite o valor de B: ");
-                    X.B = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Digite o valor de C: ");
-                    X.C = double.Parse(Console.ReadLine());
+                    case 1:
+                    {
+                        Clear();
+                        WriteLine("--Calculando Heren--");
+                        Equacoes.Heren X = new Equacoes.Heren();
+                        WriteLine("Digite o valor de A: ");
+                        X.A = double.Parse(ReadLine());
+                        WriteLine("Digite o valor de B: ");
+                        X.B = double.Parse(ReadLine());
+                        WriteLine("Digite o valor de C: ");
+                        X.C = double.Parse(ReadLine());
 
-                    string Result = X.SomaBhaskara();
-                    Console.WriteLine(Result);
-                    break;
+                        double AreaX = X.SomaHeren();
+                        WriteLine("Valor da area: {0:F2}", AreaX);
+
+                        break;
+                    }
+                    case 2:
+                    {
+                        Clear();
+                        WriteLine("--Calculando Bhaskara--");
+                        Equacoes.Bhaskara X = new Equacoes.Bhaskara();
+                        WriteLine("Digite o valor de A: ");
+                        X.A = double.Parse(ReadLine());
+                        WriteLine("Digite o valor de B: ");
+                        X.B = double.Parse(ReadLine());
+                        WriteLine("Digite o valor de C: ");
+                        X.C = double.Parse(ReadLine());
+
+                        string Result = X.SomaBhaskara();
+                        WriteLine(Result);
+                        break;
+                    }
+                    
+                    default:
+                        break;
                 }
-                default:
-                    break;
-            }
-            Console.WriteLine("");
-            Console.WriteLine("[1] Fazer outro calculo");
-            Console.WriteLine("[2] Sair");
-            Selecionar = sbyte.Parse(Console.ReadLine());
-            switch (Selecionar)
-            {
-                case 1:
-                {
-                    Console.Clear();
-                    goto inicio;
-                    break;
-                }
-                case 2:
-                {
-                    Console.WriteLine("Voce saiu do programa.");
-                    break;
-                }
-                default:
-                {
-                    Console.WriteLine("Voce saiu do programa.");
-                    break;
-                }
+                WriteLine();
+                WriteLine("Voce deseja continuar? [S/N]");
+                Stop = ReadLine();
+
             }
         }
     }

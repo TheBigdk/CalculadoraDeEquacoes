@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace Equacoes
 {
@@ -39,7 +40,8 @@ namespace Equacoes
             }
             Console.WriteLine("d = {0}", B * B - 4 * A * C);
             Console.WriteLine(" ");
-
+            if(Delta < 0) return string.Format("Como o valor de delta é negativo, logo não existem raizes reais.");
+            if (Delta == 0) return string.Format("Como é {0} este é o resultado não há como calcular", Delta);
             Console.WriteLine("Calculo de Bhaskara: ");
             Console.WriteLine("x = -b +- raiz de delta / 2 * a");
             Console.WriteLine("x = {0} + v{1} / 2 * A", -B, Delta, A);
@@ -60,5 +62,5 @@ namespace Equacoes
             return result;
         }
     }
-
 }
+
