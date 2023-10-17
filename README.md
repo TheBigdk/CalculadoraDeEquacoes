@@ -1,4 +1,4 @@
 # Calculadora de Equações
 Formulas:
-## Formula de Heren
-## Formula de Bhaskara
+ Formula de Heren
+ Formula de Bhaskara

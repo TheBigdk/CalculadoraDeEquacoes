@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using static System.Console;
 
 namespace Main
@@ -28,11 +29,11 @@ namespace Main
                         WriteLine("--Calculando Heren--");
                         Equacoes.Heren X = new Equacoes.Heren();
                         WriteLine("Digite o valor de A: ");
-                        X.A = double.Parse(ReadLine());
+                        X.A = double.Parse(ReadLine(), CultureInfo.InvariantCulture);
                         WriteLine("Digite o valor de B: ");
-                        X.B = double.Parse(ReadLine());
+                        X.B = double.Parse(ReadLine(), CultureInfo.InvariantCulture);
                         WriteLine("Digite o valor de C: ");
-                        X.C = double.Parse(ReadLine());
+                        X.C = double.Parse(ReadLine(), CultureInfo.InvariantCulture);
 
                         double AreaX = X.SomaHeren();
                         WriteLine("Valor da area: {0:F2}", AreaX);
@@ -45,11 +46,11 @@ namespace Main
                         WriteLine("--Calculando Bhaskara--");
                         Equacoes.Bhaskara X = new Equacoes.Bhaskara();
                         WriteLine("Digite o valor de A: ");
-                        X.A = double.Parse(ReadLine());
+                        X.A = double.Parse(ReadLine(), CultureInfo.InvariantCulture);
                         WriteLine("Digite o valor de B: ");
-                        X.B = double.Parse(ReadLine());
+                        X.B = double.Parse(ReadLine(), CultureInfo.InvariantCulture);
                         WriteLine("Digite o valor de C: ");
-                        X.C = double.Parse(ReadLine());
+                        X.C = double.Parse(ReadLine(), CultureInfo.InvariantCulture);
 
                         string Result = X.SomaBhaskara();
                         WriteLine(Result);
